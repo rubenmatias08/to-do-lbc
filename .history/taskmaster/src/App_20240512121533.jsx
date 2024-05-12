@@ -4,6 +4,8 @@ import { IoIosAddCircle } from "react-icons/io";
 import { MdDelete } from "react-icons/md"
 import { HiCheck } from "react-icons/hi";
 import { FaUndo } from "react-icons/fa";
+import { BsCodeSlash } from "react-icons/bs";
+
 
 function App() {
   const [tasks, setTasks] = useState([]); 
@@ -13,6 +15,7 @@ function App() {
   const handleChange = (event) => {
     setNewTask(event.target.value);
   };
+
 
   const addTask = () => {
     if (newTask.trim() !== '') {
@@ -44,7 +47,7 @@ function App() {
         <div className="flex flex-row space-x-2">
             <input
             className="border rounded p-2 h-6 text-md placeholder:font-extralight font-mono bg-white/90 focus:outline-none focus:bg-white" type="text"
-            placeholder="add a new task"
+            placeholder="Add a new task"
             value={newTask}
             onChange={handleChange} />
             <button onClick={addTask} className="text-white"><IoIosAddCircle size={20} className="text-white"/></button>
@@ -57,8 +60,8 @@ function App() {
             <span style={{ textDecoration: task.completed ? 'line-through' : 'none'}}>
               {task.text}
             </span>
-            <button className="ml-8 font-sans"onClick={() => handleToggleTask(task.id)}>
-              {task.completed ? <FaUndo size={15} />: <HiCheck size={20} />}
+            <button className="ml-6 p-2 font-sans"onClick={() => handleToggleTask(task.id)}>
+              {task.completed ? <FaUndo size={18} />: <HiCheck size={20} />}
             </button>
             <button onClick={() => deleteTask(task.id)}><MdDelete size={20}/></button>
             </li>
@@ -66,6 +69,14 @@ function App() {
           </ul>
       </div>
     </div>
+
+    <div>
+      <p className="flex justify-center mx-auto mt-5 text-white/80 font-mono">
+        <BsCodeSlash size={20} className="mx-2"/>
+        Developed by: Ruben Matias
+      </p>
+    </div>
+
     </>
   );
 }
